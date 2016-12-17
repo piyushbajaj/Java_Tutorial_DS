@@ -49,6 +49,14 @@ public class reverseLinkedList {
         }
     }
 
+    //Using Recursion
+
+    public void reverse_Recursive(Node node) {
+        if(node.next!=null)
+            reverse_Recursive(node.next);
+        System.out.println("Reverse Linked List using recusrsion is: " + node.data);
+    }
+
     public static void main(String[] args) {
         reverseLinkedList list = new reverseLinkedList();
         list.head = new Node(85);
@@ -62,5 +70,6 @@ public class reverseLinkedList {
         System.out.println("");
         System.out.println("Reversed linked list : ");
         list.printList(head);
+        list.reverse_Recursive(head);
     }
 }

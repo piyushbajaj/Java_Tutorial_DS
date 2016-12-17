@@ -14,5 +14,6 @@ public class split_num {
             number = number / 10;
 
         }
+        System.out.println(1%3);
     }
 }

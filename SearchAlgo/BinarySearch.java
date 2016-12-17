@@ -25,7 +25,7 @@ public class BinarySearch {
         for(int i = 0; i < n; i++){
             a[i] = s.nextInt();
         }
-        //System.out.println("Input the number to be matched in an array: ");
+        System.out.println("Input the number to be matched in an array: ");
         //int x = s.nextInt();
 
         //System.out.println("Index position where the given number is present is: " + search(a, n, x));
@@ -172,7 +172,7 @@ public class BinarySearch {
             L[i] = a[l+i];
         }
 
-        for(int j = 0; j < n2; j++){
+        for(int j = 0; j < n2; j++) {
             R[j] = a[m+ 1 +j];
         }
 

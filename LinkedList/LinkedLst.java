@@ -24,6 +24,8 @@ public class LinkedLst {
         }
     }
 
+
+
     /* method to create a simple linked list with 3 nodes*/
     public static void main(String[] args) {
         LinkedLst llist = new LinkedLst();

@@ -191,7 +191,7 @@ public class StackTest {
         String str = "a+b*(c^d-e)^(f+g*h)-i";
         char[] c = str.toCharArray();
 
-        //infixToPostfix_new(c);
+        infixToPostfix(c);
 
         String s = "231*+9-";
         char[] i = s.toCharArray();
