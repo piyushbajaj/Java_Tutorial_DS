@@ -1,7 +1,6 @@
 package Array;
 
 import java.util.HashMap;
-import java.util.Set;
 
 /**
  * Created by piyush.bajaj on 22/10/16.
@@ -34,8 +33,8 @@ public class OddTimes {
             }
         }
 
-        Set<Integer> key = hash.keySet();
-        for(int i = 0; i <= key.size(); i++){
+        //Set<Integer> key = hash.keySet();
+        for(int i = 0; i <= hash.size(); i++){
             if(hash.get(a[i]) % 2 != 0)
                 return a[i];
         }
@@ -54,9 +53,14 @@ public class OddTimes {
         return res;
     }
 
+
+
+
+
     public static void main(String[] args) {
         OddTimes od = new OddTimes();
-        int a[] = {1, 2, 3, 3, 1, 2, 1};
+        int a[] = {10, 10, 10, 2, 3, 3, 1, 2, 1};
+        int a1[] = {2,5,9,1,5,1,8,2,8};
         System.out.println("This number occurred odd number of times in the array: " + od.oddNoTimes(a));
 
         System.out.println("This number occurred odd number of times in the array using HASH technique: "
@@ -64,5 +68,41 @@ public class OddTimes {
 
         System.out.println("This number occurred odd number of times in the array using Bitwise XOR technique: "
                 + od.getOddOccurrence(a));
+
+        od.oddTimesOrNot(a1);
     }
+
+
+
+    ///Practice
+    public void oddTimesOrNot(int[] arr){
+        int n= arr.length;
+        int[] countArr = new int[10];
+
+        for(int i = 0; i < n; i++){
+            countArr[arr[i]]++;
+        }
+
+        for(int i = 0; i < n; i++){
+            if(countArr[arr[i]]%2 == 0)
+                continue;
+            else {
+                System.out.println("This number occurred odd number of times in the array: " + arr[i]);
+                break;
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

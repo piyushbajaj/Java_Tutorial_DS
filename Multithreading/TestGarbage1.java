@@ -4,7 +4,7 @@ package Multithreading;
  * Created by piyush.bajaj on 23/09/16.
  */
 public class TestGarbage1 {
-    protected void finalize(){
+    public void finalize(){
         System.out.println("object is garbage collected");
     }
 

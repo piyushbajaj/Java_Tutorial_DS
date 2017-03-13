@@ -107,24 +107,81 @@ public class MergeSort {
         int count = list.getCount(list.head);
         Node Nd = list.head;
         Node temp = list.head;
-        int a[] = new int[count];
+//        int a[] = new int[count];
+//
+//        for(int i = 0; i < count && Nd!=null; i++){
+//            a[i] = Nd.data;
+//            Nd = Nd.next;
+//        }
 
-        for(int i = 0; i < count && Nd!=null; i++){
-            a[i] = Nd.data;
-            Nd = Nd.next;
-        }
-
-        //int a[] = {5, 4, 1, 2, 10, 3, 2};
+        int a[] = {5, 4, 1, 2, 10, 3, 2};
 
         //int a[] = {5, 4, 1};
         int l =0;
         int r = a.length -1;
-        MergeSortAlgo(a, l, r);
+        //MergeSortAlgo(a, l, r);
+        mergeSortCalc_prac(a, l, r);
         //SelectionSortAlgo_Improved(a);
         for(int i = 0; i < a.length && temp!=null; i++){
             temp.data = a[i];
             temp = temp.next;
         }
         list.printList(list.head);
+    }
+
+    //practice
+    public static void mergeSortCalc_prac(int[] arr, int l, int r){
+        if(l < r){
+            int mid = (l+r)/2;
+            mergeSortCalc_prac(arr, l, mid);
+            mergeSortCalc_prac(arr, mid+1, r);
+            merge_prac(arr, l, mid, r);
+        }
+    }
+
+    public static void merge_prac(int[] arr, int l, int mid, int r){
+        int N1 = mid-l+1;
+        int N2 = r - mid;
+
+        int[] L = new int[N1];
+        int[] R = new int[N2];
+
+        for(int i = 0; i < N1; i++){
+            L[i] = arr[l + i];
+        }
+
+        for(int j = 0; j < N2; j++){
+            R[j] = arr[mid + 1 +j];
+        }
+
+        int i = 0;
+        int j = 0;
+        int k = l;
+
+        while (i < N1 && j < N2){
+            if(L[i] <= R[j]){
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
+        }
+
+        while (i< N1){
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while (j< N2){
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+
     }
 }

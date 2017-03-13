@@ -57,7 +57,7 @@ public class MajorityElement {
 
     public static void main(String[] args) {
         MajorityElement me = new MajorityElement();
-        int a[] = {3, 3, 4, 2, 4, 4, 2, 4, 4};
+        int a[] = {3, 3, 4, 2, 4, 4, 2, 4, 4, 3, 3, 3};
         me.majorElement(a);
 
         int cand = me.majorityElement(a);

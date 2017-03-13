@@ -46,8 +46,8 @@ public class LinkedListPalindrome {
         //But as you can see the time complexity mentioned here is O(n). But this requires O(n) extra space.
     }
 
-    public boolean isPalindrome_LinkedList(){
-        Node Nd = head;
+    public boolean isPalindrome_LinkedList(Node Nd){
+        //Node Nd = head;
         Node Original_Node = Nd;
         Node reverse_Nd = reverse(head);
 
@@ -85,8 +85,8 @@ public class LinkedListPalindrome {
         lP.head.next.next.next = new Node('X');
         lP.head.next.next.next.next = new Node('I');
         lP.head.next.next.next.next.next = new Node('P');
-        //System.out.println(lP.isPalindrome_Stack());
+        System.out.println(lP.isPalindrome_Stack());
         //lP.isPalindrome_Stack();
-        System.out.println(lP.isPalindrome_LinkedList());
+        //System.out.println(lP.isPalindrome_LinkedList(lP.head));
     }
 }

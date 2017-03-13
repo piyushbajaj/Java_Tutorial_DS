@@ -95,9 +95,17 @@ public class LinkedLst {
 
         llist.printList();
 
+        System.out.println("List 1: ");
+        llist1.printList();
+
+        System.out.println("List 2: ");
+        llist2.printList();
+
+
 
         llist3.head = llist3.addTwoLists(llist1.head, llist2.head);
 
+        System.out.println("After addition of both the list is: ");
 
         System.out.print("\n");
         llist3.printList();
@@ -260,6 +268,8 @@ public class LinkedLst {
             System.out.print(n.data + " ");
             n=n.next;
         }
+        System.out.println();
+
     }
 
     //Add a node at the front: (A 4 steps process)

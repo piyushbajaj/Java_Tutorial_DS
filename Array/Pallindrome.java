@@ -23,7 +23,7 @@ public class Pallindrome {
     }
 
     public static void main(String[] args) {
-        String s = "piyushxhsuyi";
+        String s = "piytyip";
         System.out.println(isPallindrome(s));
     }
 }

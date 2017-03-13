@@ -5,7 +5,7 @@ package javatpoint;
  */
 
 abstract class Bike{
-    abstract void run();
+    abstract public void run();
 }
 
 public class abstractHonda extends Bike {
@@ -13,9 +13,13 @@ public class abstractHonda extends Bike {
         System.out.println("running safely..");
     }
 
+    public void start(){
+
+    }
+
 
     public static void main(String[] args) {
-        abstractHonda obj = new abstractHonda();
+        Bike obj = new abstractHonda();
         obj.run();
     }
 }

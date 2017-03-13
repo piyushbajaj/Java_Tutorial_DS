@@ -64,12 +64,32 @@ public class DetectLoop {
         llist.head.next.next.next = new Node(4);
         llist.head.next.next.next.next = new Node(5);
         llist.head.next.next.next.next.next = llist.head.next;
-        llist.checkLoop();
+        //llist.checkLoop();
+
+        llist.prac_checkLoop();
         //llist.checkLoop_hash();
         //llist.printList();
         System.out.println("\n");
         //System.out.println(llist.search(0));
         //System.out.println(llist.search_recursive(llist.head, 1));
         //llist.returnNthNode(3);
+    }
+
+    public void prac_checkLoop(){
+        if(head == null)
+            return;
+
+        Node slow_ptr = head;
+        Node fast_ptr = head;
+
+        while (slow_ptr!=null && fast_ptr!=null && slow_ptr.next!=null && fast_ptr.next!=null){
+            slow_ptr = slow_ptr.next;
+            fast_ptr = fast_ptr.next.next;
+
+            if(slow_ptr.data == fast_ptr.data){
+                System.out.print("We found a loop" + fast_ptr.data);
+                return;
+            }
+        }
     }
 }

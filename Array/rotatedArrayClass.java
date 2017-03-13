@@ -61,9 +61,77 @@ public class rotatedArrayClass {
         }
     }
 
+    public void rotateArrayByKey(int[] arr, int d, int n){
+        int[] subArr1 = new int[d];
+        int[] subArr2 = new int[n-d];
+        int N1 = subArr1.length;
+        int N2 = subArr2.length;
+
+        for(int i = 0; i < N1; i++){
+            subArr1[i] = arr[i];
+        }
+
+        for(int i = 0; i < N2; i++){
+            subArr2[i] = arr[i+d];
+        }
+
+        for(int i = 0; i < N2; i++){
+            arr[i] = subArr2[i];
+        }
+
+        for(int i = 0; i < d; i++){
+            arr[N2] = subArr1[i];
+            N2++;
+        }
+    }
+
+
+    //Rotate one by one. This consume less space.
+    public void leftRotate(int[] arr, int d, int n){
+        for (int i = 0; i < d; i++)
+            leftRotateByOne(arr, n);
+    }
+
+    public void leftRotateByOne(int[] arr, int n){
+        int i;
+        int temp = arr[0];
+        for(i = 0; i < n-1; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[i] = temp;
+    }
+
+    public void printArray(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+
+
     public static void main(String[] args) {
+        rotatedArrayClass RA = new rotatedArrayClass();
+
         int[] a = {3, 4, 5, 1, 2};
         int key = 1;
         rotatedArray(a, key);
+
+
+        System.out.println("Original Array is: ");
+
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        RA.printArray(arr);
+
+//        System.out.println("After rotating Array is: ");
+//        RA.rotateArrayByKey(arr, 6, arr.length);
+//
+//        RA.printArray(arr);
+
+
+        System.out.println("After rotating Array using improved method is: ");
+        RA.leftRotate(arr, 1, arr.length);
+        RA.printArray(arr);
+
     }
 }
