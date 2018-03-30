@@ -114,7 +114,7 @@ public class MaxHeap {
         BT.insert(-10);
         BT.printMaxHeap();
 
-        BT.arr = new int[]{1, 2, 3, 4, 5};
+        //BT.arr = new int[]{1, 2, 3, 4, 5};
 
         BT.delete(3);
         BT.printMaxHeap();

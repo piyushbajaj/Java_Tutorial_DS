@@ -95,6 +95,45 @@ public class BinaryTreeSubTree {
         return (isSubTree(BT.left, ST)) || (isSubTree(BT.right, ST));
     }
 
+    public void fillUpInorder(String[] str, Node key){
+        if(key == null)
+            return;
+
+        fillUpInorder(str, key.left);
+        str[0] += key.data;
+        fillUpInorder(str, key.right);
+    }
+
+    public void fillUpPreOrder(String[] str, Node key){
+        if(key == null)
+            return;
+
+        str[0] += key.data;
+        fillUpPreOrder(str, key.left);
+        fillUpPreOrder(str, key.right);
+    }
+
+    //This is done using the concept of Inorder and PreOrder Traversal
+    public boolean improvedSubTree(Node BT, Node ST){
+
+        String[] inorderBT = {""};
+        String[] inorderST = {""};
+
+        fillUpInorder(inorderBT, BT);
+        fillUpInorder(inorderST, ST);
+
+        if(inorderBT[0].contains(inorderST[0])){
+            String preOrderBT = "";
+            String preOrderST = "";
+
+//            fillUpPreOrder(preOrderBT, BT);
+//            fillUpPreOrder(preOrderST, ST);
+
+            return preOrderBT.contains(preOrderST);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         System.out.println("Complete Binary Tree: ");
         BinaryTreeSubTree BT = new BinaryTreeSubTree(26);
@@ -109,7 +148,7 @@ public class BinaryTreeSubTree {
         BT.root.left.right = new Node(6);
         System.out.println("Root (" + BT.root.data + ") -> Left (" + BT.root.left.data + ") -> Right: "
                 + BT.root.left.right.data);
-        BT.root.right.right = new Node(3);
+        BT.root.right.right = new Node(7);
         System.out.println("Root (" + BT.root.data + ") -> Right (" + BT.root.right.data + ") -> Right: "
                 + BT.root.right.right.data);
         BT.root.left.left.right = new Node(30);
@@ -126,13 +165,15 @@ public class BinaryTreeSubTree {
         System.out.println("Root ("+ ST.root.data +") -> Left: " + ST.root.left.data);
         ST.root.right = new Node(6);
         System.out.println("Root ("+ ST.root.data +") -> Right: " + ST.root.right.data);
-        ST.root.left.right = new Node(30);
-        System.out.println("Root (" + ST.root.data + ") -> Left (" + ST.root.left.data + ") -> Right: "
-                + ST.root.left.right.data);
+        //ST.root.left.right = new Node(30);
+        //System.out.println("Root (" + ST.root.data + ") -> Left (" + ST.root.left.data + ") -> Right: "
+                //+ ST.root.left.right.data);
 
         //BT.inOrderTraversal(BT.root);
 
         System.out.println(BT.isSubTree(BT.root, ST.root));
+
+        System.out.println(BT.improvedSubTree(BT.root, ST.root));
     }
 
 }

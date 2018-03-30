@@ -28,6 +28,8 @@ public class BFS_LCA {
         if(node == null)
             return null;
 
+
+
         if(node.data ==n1 || node.data == n2)
             return node;
 
@@ -65,6 +67,29 @@ public class BFS_LCA {
 //        return (left_lca != null) ? left_lca : right_lca;
     }
 
+
+    public Node lca_prac(Node key, int a, int b){
+        if(key == null)
+            return null;
+
+        if(key.data == a || key.data == b)
+            return key;
+
+        Node Llca = lca_prac(key.left, a, b);
+        Node Rlca = lca_prac(key.right, a, b);
+
+        if(Llca != null && Rlca != null)
+            return key;
+
+        if(Llca!=null)
+            return Llca;
+
+        else
+            return Rlca;
+
+        //return key;
+    }
+
     public static void main(String[] args) {
         BFS_LCA BT = new BFS_LCA(1);
         System.out.println("Root: " + BT.root.data);
@@ -73,6 +98,7 @@ public class BFS_LCA {
         BT.root.right = new Node(3);
         System.out.println("Root ("+ BT.root.data +") -> Right: " + BT.root.right.data);
         BT.root.left.left = new Node(4);
+        BT.root.left.left.right = new Node(8);
         System.out.println("Root ("+ BT.root.data +") -> Left ("+ BT.root.left.data + ") -> Left: " + BT.root.left.left.data);
         BT.root.left.right = new Node(5);
         System.out.println("Root ("+ BT.root.data +") -> Left ("+ BT.root.left.data + ") -> Right: " + BT.root.left.right.data);
@@ -81,7 +107,9 @@ public class BFS_LCA {
         BT.root.right.right = new Node(7);
         System.out.println("Root ("+ BT.root.data +") -> Right ("+ BT.root.right.data + ") -> Right: " + BT.root.right.right.data);
 
-        System.out.println("LCA is: " + BT.findLCA(BT.root, 3, 5).data);
+        System.out.println("LCA is: " + BT.findLCA(BT.root, 4, 7).data);
+
+        System.out.println("LCA is: " + BT.lca_prac(BT.root, 4, 7).data);
 
     }
 }

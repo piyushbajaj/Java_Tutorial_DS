@@ -36,6 +36,13 @@ public class minWindow {
                     begin++;
                 }
 
+                int bin = 11 | 11;
+
+                //Integer.bin
+                //
+
+                //Long.pa
+
 
                 int winLen = end - begin + 1;
 

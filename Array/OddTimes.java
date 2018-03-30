@@ -61,7 +61,7 @@ public class OddTimes {
         OddTimes od = new OddTimes();
         int a[] = {10, 10, 10, 2, 3, 3, 1, 2, 1};
         int a1[] = {2,5,9,1,5,1,8,2,8};
-        System.out.println("This number occurred odd number of times in the array: " + od.oddNoTimes(a));
+        System.out.println("This number occurred odd number of times in the array: " + od.oddNoTimes(a1));
 
         System.out.println("This number occurred odd number of times in the array using HASH technique: "
                 + od.oddNoTimes_hash(a));

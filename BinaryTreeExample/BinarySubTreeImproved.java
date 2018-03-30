@@ -127,6 +127,27 @@ public class BinarySubTreeImproved {
             return (strstr(op3, op4) != null);
         }
 
+    public boolean checkSubTree(Node N1, Node N2){
+        if(N1 == null && N2 == null)
+            return true;
+
+        else if(N1 == null && N2 != null)
+            return false;
+
+        else if(N1 != null && N2 == null)
+            return false;
+
+        else if(N1.data == N2.data){
+            return checkSubTree(N1.left, N2.left) && checkSubTree(N1.right, N2.right);
+        }
+
+        else {
+            checkSubTree(N1.left, N2);
+            checkSubTree(N1.right, N2);
+        }
+        return false;
+    }
+
         //Driver program to test above functions
         public static void main(String args[]) {
             BinarySubTreeImproved tree = new BinarySubTreeImproved();
@@ -140,6 +161,8 @@ public class BinarySubTreeImproved {
             S.left = new Node('b');
             S.right = new Node('d');
             S.left.left = new Node('c');
+
+            //System.out.println(tree.checkSubTree(T, S));
 
             if (tree.isSubtree(T, S)) {
                 System.out.println("Yes , S is a subtree of T");

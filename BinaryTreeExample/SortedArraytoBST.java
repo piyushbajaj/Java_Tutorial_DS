@@ -2,6 +2,7 @@ package BinaryTreeExample;
 
 /**
  * Created by piyush.bajaj on 25/12/16.
+ * In sorted array it will use the algorithm of PreOrder
  */
 public class SortedArraytoBST {
     Node root;

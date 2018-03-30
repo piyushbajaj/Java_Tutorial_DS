@@ -17,11 +17,11 @@ public class Memoization {
     int Max = 100;
     int Nil = -1;
 
-    int[] lookup = new int[Max];
+    int[] lookup = new int[41];
 
-    public void initialize(){
+    public void initialize(int N){
         int i;
-        for(i = 0; i < Max; i++)
+        for(i = 0; i <= N; i++)
             lookup[i] = Nil;
     }
 
@@ -39,9 +39,9 @@ public class Memoization {
 
     public static void main(String[] args) {
         Memoization mem = new Memoization();
-        System.out.println(mem.fib(4));
+        System.out.println(mem.fib(40));
 
-        mem.initialize();
-        System.out.println(mem.fib_Mem(4));
+        mem.initialize(40);
+        System.out.println("With memoization " + mem.fib_Mem(40));
     }
 }

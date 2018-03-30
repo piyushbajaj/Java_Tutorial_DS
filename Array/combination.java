@@ -2,6 +2,7 @@ package Array;
 
 /**
  * Created by piyush.bajaj on 16/02/17.
+ * This is following PreOrder Traversal
  */
 public class combination {
     public void combinationString(String str){

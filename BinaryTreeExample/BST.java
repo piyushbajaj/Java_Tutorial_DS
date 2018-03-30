@@ -42,6 +42,7 @@ public class BST {
 
         public void insertrec(int key){
             root = insert(root, key);
+
         }
 
         public Node insert(Node root, int key){
@@ -58,6 +59,15 @@ public class BST {
 
             System.out.println("Same node is already present in the tree once");
             return root;
+        }
+
+        public void printTree(Node key){
+            if(key == null)
+                return;
+
+            printTree(key.left);
+            System.out.print(key.data + " ");
+            printTree(key.right);
         }
 
 
@@ -88,7 +98,9 @@ public class BST {
 
             System.out.println("Node found using BST is: " + BT.search(BT.root, 6));
 
-            BT.insertrec(2);
+            BT.insertrec(6);
+
+
         }
     }
 }

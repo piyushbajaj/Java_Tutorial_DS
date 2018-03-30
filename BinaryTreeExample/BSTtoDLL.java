@@ -89,10 +89,52 @@ public class BSTtoDLL {
         System.out.println("Root ("+ BT.root.data +") -> Right ("+ BT.root.right.data + ") -> Right: " + BT.root.right.right.data);
 
         System.out.println("After converting to Doubly Linked List: ");
-        BT.printNodes(BT.BSTtoDLL_recur(BT.root));
+        //BT.printNodes(BT.BSTtoDLL_recur(BT.root));
+
+        BT.printNodes(BT.BSTtoDLL_recur_prac(BT.root));
 
     }
 
-    pub
+    public Node BSTtoDLL_recur_prac(Node Nd){
+        if(Nd == null)
+            return null;
+
+        Nd = BSTtoDLL_recur_prac_util(Nd);
+
+        while (Nd.left!=null)
+            Nd = Nd.left;
+
+        return Nd;
+    }
+
+    public Node BSTtoDLL_recur_prac_util(Node key){
+        if(key == null)
+            return null;
+
+        Node prev;
+        Node next;
+
+        if(key.left!=null){
+            prev = BSTtoDLL_recur_prac_util(key.left);
+
+            while (prev.right!=null)
+                prev = prev.right;
+
+            prev.right = key;
+            key.left = prev;
+        }
+
+        if(key.right!=null){
+            next = BSTtoDLL_recur_prac_util(key.right);
+
+            while (next.left!=null)
+                next = next.left;
+
+            next.left = key;
+            key.right = next;
+        }
+
+        return key;
+    }
 
 }

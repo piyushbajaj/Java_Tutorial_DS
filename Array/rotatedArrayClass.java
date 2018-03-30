@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.Scanner;
+
 /**
  * Created by piyush.bajaj on 02/12/16.
  */
@@ -92,11 +94,25 @@ public class rotatedArrayClass {
             leftRotateByOne(arr, n);
     }
 
+    public void rightRotate(int[] arr, int d, int n){
+        for (int i = 0; i < d; i++)
+            rightRotateByOne(arr, n);
+    }
+
     public void leftRotateByOne(int[] arr, int n){
         int i;
         int temp = arr[0];
         for(i = 0; i < n-1; i++){
             arr[i] = arr[i+1];
+        }
+        arr[i] = temp;
+    }
+
+    public void rightRotateByOne(int[] arr, int n){
+        int i;
+        int temp = arr[n-1];
+        for(i = n-1; i > 0; i--){
+            arr[i] = arr[i-1];
         }
         arr[i] = temp;
     }
@@ -118,20 +134,30 @@ public class rotatedArrayClass {
         rotatedArray(a, key);
 
 
+        Scanner s = new Scanner(System.in);
+
+
         System.out.println("Original Array is: ");
 
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         RA.printArray(arr);
 
-//        System.out.println("After rotating Array is: ");
-//        RA.rotateArrayByKey(arr, 6, arr.length);
-//
-//        RA.printArray(arr);
+        System.out.println("After rotating Array is: ");
+        RA.rotateArrayByKey(arr, 6, arr.length);
 
-
-        System.out.println("After rotating Array using improved method is: ");
-        RA.leftRotate(arr, 1, arr.length);
         RA.printArray(arr);
+
+
+        System.out.println("After left rotating Array using improved method is: ");
+        RA.leftRotate(arr, 2, arr.length);
+        RA.printArray(arr);
+
+
+
+        System.out.println("After right rotating Array using improved method is: ");
+        RA.rightRotate(arr, 2, arr.length);
+        RA.printArray(arr);
+
 
     }
 }

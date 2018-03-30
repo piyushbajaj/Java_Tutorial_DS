@@ -161,7 +161,7 @@ public class removeDuplicates {
     public static void main(String[] args) {
         removeDuplicates list = new removeDuplicates();
         list.head = new Node(12);
-        list.head.next = new Node(6);
+        list.head.next = new Node(12);
         list.head.next.next = new Node(12);
         list.head.next.next.next = new Node(8);
         list.head.next.next.next.next = new Node(9);
@@ -204,7 +204,7 @@ public class removeDuplicates {
         //System.out.println("After removing duplicates from OPTIMISED UNSORTED Linked List is: ");
         // Here the complexity comes down to O(nlogn)
         list.removeDuplicates_Sorted(list.head);
-        //list.printList(list.head);
+        list.printList(list.head);
 
         System.out.println("After removing duplicates from Highly OPTIMISED UNSORTED Linked List is: ");
 

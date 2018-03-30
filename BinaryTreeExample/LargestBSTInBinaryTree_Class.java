@@ -2,6 +2,59 @@ package BinaryTreeExample;
 
 /**
  * Created by piyush.bajaj on 30/12/16.
+
+ Lets understand the algorithm to create BST from InOrder and PreOrder arrays
+ 1. public Node createBST(inOrder[], preOrder[]){
+    a. index = 0; start = 0; end = inOrder[].length;
+    b. createdBST(inOrder[], preOrder[], 0, end-1);
+    }
+    c. public Node createdBST(inOrder[], preOrder[], start, end){
+        if(start>end)
+            return null;
+        for(int i = start; i <=end; i++){
+            if(preOrder[index] == inOrder[i])
+                break;
+        }
+        Node new_node = new Node(preOrder[index]);
+        index++;
+        new_node.left = createdBST(inOrder[], preOrder[], start, i-1);
+        new_node.right = createdBST(inOrder[], preOrder[], i+1, end);
+
+        return new_node;
+    }
+
+ 2. Now we need to calculate Largest BST, so please follow the steps:
+    a. Create MinMax class which contains following variables:
+        i. int min = Integer.Max_Value;
+        ii. int max = Integer.Min_Value;
+        iii. int size = 0;
+        iv. boolean isBST = true;
+
+    b. public MinMax largestBST(Node key){
+        if(key==null)
+            return new MinMax();
+        //Use Post Order Traversal Technique
+        MinMax leftside = largestBST(key.left);
+        MinMax rightside = largestBST(key.right);
+
+        MinMax m = new MinMax();
+        if(leftside.isBST == FALSE || rightside.isBST == FALSE || leftside.max > key.data || rightside.min < key.data){
+            m.isBST = FALSE;
+            m.size = Math.max(leftside.size, rightside.size);
+            }
+
+        ///it is BST
+        m.isBST = TRUE;
+        m.size = leftside.size + rightside.size + 1;
+
+        m.min = (key.left != null)?leftside.min:key.data;
+
+        m.max = (key.right != null)?rightside.max:key.data;
+
+        return m;
+        }
+
+
  */
 public class LargestBSTInBinaryTree_Class {
     Node root;
@@ -46,6 +99,8 @@ public class LargestBSTInBinaryTree_Class {
         node.left = createTree(inorder,preorder,start,i-1);
         node.right = createTree(inorder,preorder,i+1,end);
         return node;
+
+
     }
 
     public class  MinMax{
@@ -110,13 +165,18 @@ public class LargestBSTInBinaryTree_Class {
     public static void main(String[] args) {
         LargestBSTInBinaryTree_Class BT = new LargestBSTInBinaryTree_Class();
 
-        int inorder[]  = {-7,-6,-5,-4,-3,-2,1,2,3,16,6,10,11,12,14};
-        int preorder[] = {3,-2,-3,-4,-5,-6,-7,1,2,16,10,6,12,11,14};
+//        int inorder[]  = {-7,-6,-5,-4,-3,-2,1,2,3,16,6,10,11,12,14};
+//        int preorder[] = {3,-2,-3,-4,-5,-6,-7,1,2,16,10,6,12,11,14};
+
+        int inorder[]  = {1, 2, 3, 4, 5, 6, 7};
+        int preorder[] = {4, 2, 1, 3, 6, 5, 7};
 
         Node Nd = BT.createTree(inorder, preorder);
         int maxValue = BT.largestBSTVal(Nd);
 
         System.out.println("Size of largest BST is " + maxValue);
+
+        Runtime.getRuntime().gc();
 
     }
 }

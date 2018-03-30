@@ -5,6 +5,27 @@ import java.util.Queue;
 
 /**
  * Created by piyush.bajaj on 11/01/17.
+ * Algorithm for Calculating SHortest Path in UnWeighted Graph:
+ * 1. Create Vertex class.
+ * 2. Create addEdge and addVertex function.
+ * 3. Create a function ShotestPath(int s){
+ *     a. Initialize every distance to be -1, and the source to be 0
+ *     b. Initialize every path to be -.
+ *     c. This will be done using Queue, where first will add that element in queue
+ *
+ *     queue.add(s)
+ *     while(!queue.isEmpty){
+ *         int v = queue.remove;
+ *
+ *         for(int i: adjList[v]){
+ *             if(Distance[i] == -1){
+ *                 Distance[i] = Distance[v] + 1;
+ *                 Path[i] = vertexList[i].label;
+ *                 queue.add(i);
+ *             }
+ *         }
+ *     }
+ * }
  */
 public class ShortestPathUnweight {
     public class Vertex{

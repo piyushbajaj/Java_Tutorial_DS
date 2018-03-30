@@ -70,6 +70,7 @@ public class compressed {
     public static void main(String[] args) {
         System.out.println("Input the string: ");
         Scanner s = new Scanner(System.in);
+
         String str = s.nextLine();
         compressedChar(str);
         //compressBetter(str);

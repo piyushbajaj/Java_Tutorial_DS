@@ -4,6 +4,30 @@ import java.util.Stack;
 
 /**
  * Created by piyush.bajaj on 09/12/16.
+ *
+ Algorithm for converting Infix to PostFix:
+ 1. Define a method which checks whether a character is an Operand or not, i.e., char will be between a & z
+ 2. Define a method Precedence with priority: + - as 1; * / as 2; ^ as 3
+ 3. Please find the steps to convert Infix to PostFix:
+    a. Will define Stack<Integer>()
+    b. initialise k = 0; Define charArray[] = s.toCharArray()
+    c. Now start loop from 1st character till the end.
+    d. if the ch is operand, then charArray[k++] = ch;
+    e. if ch is '(', then push into Stack.
+    f. if ch is ')', then:
+        i. while (stk.peek()!='('){
+                charArray[k++] = stk.pop();
+            }
+            stk.pop();
+    g. else{
+        while(!stk.isEmpty() && Precedence(ch) <= Precedence(stk.peek()))
+            charArray[k++] = stk.pop();
+        }
+        stk.push(ch)
+
+
+ Time Complexity: O(n)
+ Space Complexity: O(n)
  */
 public class infixToPostfix_Class {
     public boolean isOperand(char ch){

@@ -34,18 +34,21 @@ public class Route_Between_Nodes {
                 System.out.println("There is a connection between Nodes");
                 System.exit(1);
             }
-            if(!visited[n]){
+            else if(!visited[n]){
                 DFS_Route_Bet_Nodes(n, y, visited);
             }
+            //else break;
         }
-        System.out.println("There is NO connection between Nodes");
-        System.exit(1);
+
+       // System.exit(1);
     }
 
     public void DFS(int x, int y){
         boolean[] visited = new boolean[V];
 
         DFS_Route_Bet_Nodes(x, y, visited);
+
+        System.out.println("There is NO connection between Nodes");
     }
 
     //here we will use depth first search for this
@@ -59,7 +62,7 @@ public class Route_Between_Nodes {
         RB.addEdge(2, 3);
         RB.addEdge(3, 3);
 
-        int x = 3, y = 3;
+        int x = 5, y = 3;
 
 
         System.out.println("Is there a route between " + x + " and " + y + ": " );

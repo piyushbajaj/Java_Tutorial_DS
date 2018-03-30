@@ -174,10 +174,10 @@ public class additionLinkedList {
         llist1.printList(llist1.head);
         System.out.println("Second Linked List is: ");
         llist2.printList(llist2.head);
-        //llist1.additionTwoLL(llist1.head, llist2.head);
+        llist1.additionTwoLL(llist1.head, llist2.head);
 
         //llist1.additionTwoLL_recur_Prac_Util(llist1.head, llist2.head);
 
-        llist1.additionTwoLL_recur(llist1.head, llist2.head, 0);
+        //llist1.additionTwoLL_recur(llist1.head, llist2.head, 0);
     }
 }

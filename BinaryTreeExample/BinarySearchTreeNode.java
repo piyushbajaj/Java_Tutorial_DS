@@ -2,6 +2,9 @@ package BinaryTreeExample;
 
 /**
  * Created by piyush.bajaj on 22/12/16.
+ *
+ * isBST can be done using Inorder Traversal:
+ 1.
  */
 public class BinarySearchTreeNode {
     Node root;
@@ -56,7 +59,7 @@ public class BinarySearchTreeNode {
             return key.data;
     }
 
-    public int findMin_BST_Recursive(Node key){
+    public int findMin_BST_Non_Recursive(Node key){
         if(key == null)
             return -1;
         while (key!=null){
@@ -240,7 +243,7 @@ public class BinarySearchTreeNode {
 
         System.out.println("Minimum element in the BST is: " + BT.findMin_BST(BT.root));
 
-        System.out.println("Minimum element in the BST using Non-Recursion: " + BT.findMin_BST_Recursive(BT.root));
+        System.out.println("Minimum element in the BST using Non-Recursion: " + BT.findMin_BST_Non_Recursive(BT.root));
 
         System.out.println("Maximum element in the BST is: " + BT.findMax_BST(BT.root));
 

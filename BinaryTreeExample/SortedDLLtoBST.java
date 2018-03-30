@@ -2,6 +2,19 @@ package BinaryTreeExample;
 
 /**
  * Created by piyush.bajaj on 25/12/16.
+ *
+ * In Doubly linked list, it will use the algorithm of InOrder
+
+ 1. public Node sortedLLtoBST(int n){
+    if(n <= 0) return null;
+    Node left = sortedLLtoBST(n/2);
+    Node root = head;
+    root.prev = left;
+    head = head.next;
+    Node right = sortedLLtoBST(n-n/2-1);
+
+ return root;
+    }
  */
 public class SortedDLLtoBST {
     Node head;
@@ -56,7 +69,7 @@ public class SortedDLLtoBST {
     public Node sortedListTOBST(Node key){
         int n = countNodes(key);
 
-        return sortedListTOBST_Recur(n);
+        return prac_sortedListTOBST(n);
     }
 
     public Node sortedListTOBST_Recur(int n){
@@ -110,6 +123,25 @@ public class SortedDLLtoBST {
         System.out.println("Root ("+ root.data +") -> Right ("+ root.next.data + ") -> Right: " + root.next.next.data);
 
 
+    }
+
+
+    //Inorder types
+    public Node prac_sortedListTOBST(int n){
+        if(n<=0)
+            return null;
+
+        Node left = prac_sortedListTOBST(n/2);
+
+        Node root = head;
+
+        root.prev = left;
+
+        head = head.next;
+
+        root.next = prac_sortedListTOBST(n - n/2 -1);
+
+        return root;
     }
 
 }

@@ -1,5 +1,6 @@
 package Array;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -84,15 +85,17 @@ public class Permuation {
     }
 
     public void permutationOfString(String str){
-        char[] charArr = new char[str.length()];
-        charArr = str.toCharArray();
+        //char[] charArr = new char[str.length()];
+        char[] charArr = str.toCharArray();
         int n = str.length();
         permutations(charArr, n);
     }
 
+    HashSet<String> hashSet = new HashSet<>();
     public void permutations(char[] arr, int n){
         if(n==1)
         {
+            hashSet.add(String.valueOf(arr));
             System.out.println(String.valueOf(arr) + " ");
             return;
         }
@@ -129,6 +132,7 @@ public class Permuation {
         String str3 = s3.nextLine();
         System.out.println("So the permutation of " + str3 + " are: ");
         per.permutationOfString(str3);
+        System.out.println(per.hashSet.size());
 
     }
 }

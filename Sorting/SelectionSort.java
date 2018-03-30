@@ -2,6 +2,30 @@ package Sorting;
 
 /**
  * Created by piyush.bajaj on 02/10/16.
+ *
+ Few descriptions about Selection Sort are:
+ 1. It is in-place algorithm.
+ 2. It is not stable algorithm, and its stability depends upon implementation
+ 3. It works wll for the small files.
+ 4. It is used for sorting the files with very large values and small keys.
+ 5. Find the minimum value in the array and replace with current value.
+
+ Complexities:
+ Worst Case Time: O(n*n)
+ Average Case Time: O(n*n)
+ Best Case Time: O(n)
+
+ Space Complexities: O(1)
+
+ Algorithm:
+ 1. First loop starts with i = 0 to n-1, and assigning min = i.
+ 2. Second loop starts with j = 0 to n-1, and comparing a[j] with a[min] and so replacing min with that index, and
+ finally swapping min index with i index.
+ 3. And proceeding further i+1 everytime. Like this we will get increasing sorted order.
+ 4. We can improve the time complexity here by keeping flag = true, inside the first loop. While inside second loop making
+ it false, when the second loop completes will check this FLAG
+
+
  */
 public class SelectionSort {
     public static void main(String[] args) {

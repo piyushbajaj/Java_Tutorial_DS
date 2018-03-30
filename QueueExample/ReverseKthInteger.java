@@ -50,7 +50,27 @@ public class ReverseKthInteger {
 
         QC.reversequeueFirstKth(4, queue);
 
+        //QC.reverse(4, queue);
         System.out.println(QC.displayQueue(queue));
 
+    }
+
+    int count=1;
+    public void reverse(int key, Queue<Integer> Que){
+        if(!Que.isEmpty() && key != count){
+            int temp = Que.remove();
+            count++;
+            reverse(key, Que);
+            //Que.add(temp);
+            reverse_util(temp, Que);
+
+        }
+    }
+
+    public void reverse_util(int temp, Queue<Integer> Que){
+        while(!Que.isEmpty()){
+            int top = Que.remove();
+        }
+        Que.add(temp);
     }
 }

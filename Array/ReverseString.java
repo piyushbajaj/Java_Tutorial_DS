@@ -1,5 +1,6 @@
 package Array;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -53,6 +54,11 @@ public class ReverseString {
 
     public void reverseSentence(String arr, int n){
         //char c = 'A' ^ 'B';
+
+
+
+        HashMap<String, Boolean> hash = new HashMap<>();
+        //hash.put
         StringBuilder sb = new StringBuilder();
         arr = String.valueOf(reverseArr(arr.toCharArray()));
          //.toString();
@@ -85,23 +91,24 @@ public class ReverseString {
     public static void main(String[] args) {
         ReverseString RA = new ReverseString();
 
-        System.out.println("Input the string to be reversed: ");
-        Scanner s = new Scanner(System.in);
-        String str = s.nextLine();
-        char[] charArr = str.toCharArray();
-        //reverseArr(charArr);
-        reverseArr_XOR(charArr);
-        String st = String.valueOf(charArr);
-        System.out.println(st);
+//        System.out.println("Input the string to be reversed: ");
+//        Scanner s = new Scanner(System.in);
+//        String str = s.nextLine();
+//        char[] charArr = str.toCharArray();
+//        //RA.reverseArr(charArr);
+//        reverseArr_XOR(charArr);
+//        String st = String.valueOf(charArr);
+//        System.out.println(st);
+//
+//        System.out.println("Using StringBuffer: ");
+//        System.out.println(reverseString(str));
 
-        System.out.println("Using StringBuffer: ");
-        System.out.println(reverseString(str));
-
-//        System.out.println("Input the sentence to be reversed: ");
-//        Scanner s1 = new Scanner(System.in);
-//        String str1 = s1.nextLine();
-//        char[] charArr1 = str1.toCharArray();
-//        int n = charArr1.length;
-//        RA.reverseSentence(str1, n);
+        System.out.println("Input the sentence to be reversed: ");
+        Scanner s1 = new Scanner(System.in);
+        String str1 = s1.nextLine();
+        char[] charArr1 = str1.toCharArray();
+        int n = charArr1.length;
+        RA.reverseSentence(str1, n);
+        //reverseString(str1);
     }
 }

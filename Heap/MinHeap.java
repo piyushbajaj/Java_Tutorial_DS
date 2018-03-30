@@ -1,5 +1,7 @@
 package Heap;
 
+import java.util.Scanner;
+
 /**
  * Created by piyush.bajaj on 06/01/17.
  */
@@ -29,6 +31,10 @@ public class MinHeap {
         arr = new int[this.capacity];
         this.size = 0;
         heap=new Node[capacity+1];
+
+        for(int i = 0; i < this.capacity; i++){
+            arr[i] = Integer.MAX_VALUE;
+        }
     }
 
     public void swap(int i, int j, int[] arr){
@@ -62,10 +68,24 @@ public class MinHeap {
         return arr[0];
     }
 
+    public void resizeHeap(){
+        int[] array_old = this.arr;
+        this.arr = new int[this.capacity*2];
+        if(this.arr == null){
+            System.out.println("Memory Error");
+            return;
+        }
+        for(int i =0; i < this.capacity; i++){
+            this.arr[i] = array_old[i];
+        }
+
+        this.capacity *= 2;
+        array_old = null;
+    }
+
     public void insert(int key){
         if(this.capacity == this.size){
-            System.out.println("Heap Overflow");
-            return;
+            resizeHeap();
         }
 
         arr[this.size++] = key;
@@ -89,6 +109,11 @@ public class MinHeap {
 
     //Here i is the key we are deleting
     public void delete(int i){
+        if(this.size <= 0){
+            System.out.println("Heap Underflow");
+            return;
+        }
+
         arr[i] = Integer.MIN_VALUE;
         fixUpwards(i);
         extractMin();
@@ -145,29 +170,93 @@ public class MinHeap {
         }
     }
 
+    public void heapify_max(int i, int n){
+        int l = left(i);
+        int r = right(i);
+        int largest = i;
+
+        if(l < n && this.arr[l] > this.arr[largest])
+            largest = l;
+        if(r < n && this.arr[r] > this.arr[largest])
+            largest = r;
+
+        if(largest!=i){
+            swap(i, largest, arr);
+            heapify_max(largest, n);
+        }
+    }
+
+    public double getMedian(int i){
+        if((i+1)%2 == 1)
+            return arr[(i+1)/2];
+        else if((i+1)%2 == 0)
+            return (Double.valueOf(arr[(i)/2]) + Double.valueOf(arr[(i+1)/2]))/2;
+
+        return -1;
+    }
+
+    public void printHeap(int[] arr){
+        for(int i = 0; i < arr.length; i++)
+            System.out.print(arr[i] + " ");
+    }
+
+
+    public void sort(){
+        if(this.size <= 0)
+            return;
+
+        int n = this.size;
+        for(int i = (n-1)/2; i >= 0 ; i--)
+            heapify_max(i, n);
+
+        for(int i = n-1; i > 0; i--){
+            swap(0, i, arr);
+            heapify_max(0, i);
+        }
+    }
+
     public static void main(String[] args) {
-        MinHeap BT = new MinHeap(5);
-        BT.insert(3);
-        BT.insert(10);
-        BT.insert(2);
-        BT.insert(0);
-        BT.insert(-10);
-        BT.printMinHeap();
+//        MinHeap BT = new MinHeap(5);
+//        BT.insert(3);
+//        BT.insert(10);
+//        BT.insert(2);
+//        BT.insert(0);
+//        BT.insert(-10);
+//
+//
+//        BT.printMinHeap();
+//
+//        BT.sort();
+//
+//        BT.printMinHeap();
+//
+//        System.out.println("Extract minimum value here is: " + BT.extractMin());
+//
+//        BT.printMinHeap();
+//
+//        BT.delete(3);
+//        BT.printMinHeap();
+//
+//        System.out.println("Minimum value here is: " + BT.getMin());
+//        BT.printMinHeap();
+//
+//        BT.decreaseKey(2, -1);
+//        System.out.println("After decreasing key: ");
+//        BT.printMinHeap();
 
-        System.out.println("Extract minimum value here is: " + BT.extractMin());
 
-        BT.printMinHeap();
 
-        BT.delete(3);
-        BT.printMinHeap();
 
-        System.out.println("Minimum value here is: " + BT.getMin());
-        BT.printMinHeap();
+        int n = 6;
+        MinHeap BT = new MinHeap(n);
 
-        BT.decreaseKey(2, -1);
-        System.out.println("After decreasing key: ");
-        BT.printMinHeap();
+        Scanner s= new Scanner(System.in);
 
+        for(int i = 0; i < n; i++){
+            BT.insert(s.nextInt());
+            BT.sort();
+            System.out.println("Median is: " + BT.getMedian(i));
+        }
 
     }
 }

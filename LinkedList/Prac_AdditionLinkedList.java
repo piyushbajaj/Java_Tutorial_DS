@@ -83,9 +83,9 @@ public class Prac_AdditionLinkedList {
 
         int diff = diffInNodes(head1, head2);
 
-        if(diffInNodes(head1, head2) > 0)
+        if(diff > 0)
             result =  addingLinkList(head1, null, diff - 1, carry, head1, head2 );
-        else if(diffInNodes(head1, head2) < 0)
+        else if(diff < 0)
             result = addingLinkList(null, head2, diff + 1, carry, head1, head2 );
         else {
             result = addingLinkList(head1, head2, diffInNodes(head1, head2), carry, head1, head2);

@@ -128,6 +128,10 @@ public class Trie {
 
     }
 
+    public void insert_prac(String str){
+
+    }
+
     public static void main(String[] args) {
         Trie T = new Trie();
         T.insert("abc");
@@ -144,6 +148,8 @@ public class Trie {
         //T.printTrie(T);
 
        T.delete(search);
+
+        System.out.println("Can you find word: " + search + "? " + T.search(search));
     }
 
 

@@ -40,7 +40,7 @@ public class isLoop {
 
     public void addEdge(int i, int j) {
         adjList[i].add(j);
-        adjList[j].add(i); ///Add this in case of Undirected graph
+        //adjList[j].add(i); ///Add this in case of Undirected graph
     }
 
     public void addVertices(int v) {
@@ -110,7 +110,7 @@ public class isLoop {
 //        g.addEdge(3, 3);
 
         g.addEdge(0, 1);
-        g.addEdge(0, 2);
+        g.addEdge(2, 1);
         g.addEdge(1, 2);
 
 

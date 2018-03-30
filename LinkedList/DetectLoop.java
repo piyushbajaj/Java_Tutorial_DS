@@ -22,6 +22,8 @@ public class DetectLoop {
         }
     }
 
+
+
     public void checkLoop(){
         Node slow_p = head;
         Node fast_p = head;

@@ -41,6 +41,7 @@ public class DFS {
 
     public void addEdge(int i, int j) {
         adjList[i].add(j);
+        adjList[j].add(i);
     }
 
     public void addVertices(int v) {
@@ -93,42 +94,42 @@ public class DFS {
     }
 
     public static void main(String[] args) {
-        DFS g = new DFS(4);
-        //DFS g = new DFS(8);
+        //DFS g = new DFS(4);
+        DFS g = new DFS(8);
 
 
-        g.addVertices(0);
-        g.addVertices(1);
-        g.addVertices(2);
-        g.addVertices(3);
-        //g.addVertices(4);
+//        g.addVertices(0);
+//        g.addVertices(1);
+//        g.addVertices(2);
+//        g.addVertices(3);
+//        //g.addVertices(4);
+//
+//        g.addEdge(0, 1);
+//        g.addEdge(0, 2);
+//        g.addEdge(1, 2);
+//        g.addEdge(2, 0);
+//        g.addEdge(2, 3);
+//        g.addEdge(3, 3);
+
+
+        g.addVertices(10);
+        g.addVertices(20);
+        g.addVertices(30);
+        g.addVertices(40);
+        g.addVertices(50);
+        g.addVertices(60);
+
+        g.addVertices(70);
+        g.addVertices(80);
 
         g.addEdge(0, 1);
-        g.addEdge(0, 2);
         g.addEdge(1, 2);
-        g.addEdge(2, 0);
+        g.addEdge(1, 6);
         g.addEdge(2, 3);
-        g.addEdge(3, 3);
-
-
-//        g.addVertices(10);
-//        g.addVertices(20);
-//        g.addVertices(30);
-//        g.addVertices(40);
-//        g.addVertices(50);
-//        g.addVertices(60);
-//        g.addVertices(80);
-//        g.addVertices(70);
-
-
-//        g.addEdge(0, 1);
-//        g.addEdge(1, 2);
-//        g.addEdge(1, 6);
-//        g.addEdge(2, 3);
-//        g.addEdge(2, 4);
-//        g.addEdge(4, 5);
-//        g.addEdge(4, 6);
-//        g.addEdge(4, 7);
+        g.addEdge(2, 4);
+        g.addEdge(4, 5);
+        g.addEdge(4, 6);
+        g.addEdge(4, 7);
 
         System.out.println("Following is Depth First Traversal");
 

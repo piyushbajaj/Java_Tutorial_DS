@@ -2,6 +2,40 @@ package Sorting;
 
 /**
  * Created by piyush.bajaj on 06/10/16.
+
+ Few descriptions about Merge Sort are:
+ 1. Merge Sort is also an example of Divide and Conquer.
+ 2. Merging is the process of combining two sorted files to make one bigger sorted file.
+ 3. Selection is the process of dividing a file into two parts: k smallest elements and n-k largest elements.
+    a. Selection splits a list into two lists.
+    b. Merging joins two files to make one file.
+ 4. Merge Sort access the data in sequential manner.
+ 5. Merge sort is used in sorting a linked list. This is because of following reasons
+    a. In Linked list, we can insert an item in the middle in O(1) time and O(1) extra space.
+    b. In Merge Sort data access are done mostly sequentially, that's why Linked list is much preferred here.
+
+ Complexities:
+ Worst Case Time Complexity: O(n*log(n))
+ Average Case Time Complexity: O(n*log(n))
+ Best Case Time Complexity: O(n*log(n))
+
+ Space Complexity: O(n)
+
+ Algorithm:
+ 1. First create merge(int[] arr, int l , int m, int r) which does following things:
+    a. N1 = m-l+1;
+    b. N2 = r-m;
+    c. Collect all N1 elements in L[]
+    d. Collect all N2 elements in R[]
+    e. i = j = k = 0;
+    f. loop for i < N1 and j < N2, and whenever L[i] <= R[j], put it in arr[k] and vice-versa.
+    g. put all the remaining elements in arr[k].
+ 2. Second create a recursive function mergeSort(int[] arr, int l, int r), which does following things:
+    a. every time it will check l < r
+    b. mid = (l+r)/2;
+    c. call mergeSort(arr, l, mid); && call mergeSort(arr, mid+1, r);
+    d. Call merge function in the end, merge(arr, l, mid, r).
+  *
  */
 public class MergeSort {
 

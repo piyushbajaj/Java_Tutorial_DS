@@ -5,6 +5,7 @@ import java.util.Queue;
 
 /**
  * Created by piyush.bajaj on 12/12/16.
+ Implementing Stack using two queues
  */
 public class UsingTwoQueue {
     private Queue<Integer> queue1 = new LinkedList<>();

@@ -6,6 +6,10 @@ import java.util.Scanner;
  * Created by piyush.bajaj on 20/11/16.
  */
 public class compressed {
+    int i =1;
+    {
+        i = 2;
+    }
     public static void compressedChar(String str){
         char[] charArr = str.toCharArray();
 

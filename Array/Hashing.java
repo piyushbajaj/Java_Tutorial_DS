@@ -14,6 +14,9 @@ public class Hashing {
         for(Student s: students)
             map.put(s.getId(), s);
         return map;
+
+        //String s;
+        //s.con
     }
 
 //    public static void main(String[] args) {

@@ -89,16 +89,17 @@ public class IsPathExist {
     public boolean isPathFound(int u, int v){
         vertexList[u].visited = true;
         Stack<Integer> stk = new Stack<>();
-        System.out.print(vertexList[u].label + " ");
+        //System.out.print(vertexList[u].label + " ");
         stk.push(u);
+        int temp2 = 0;
         while (!stk.isEmpty()){
-            int temp = nextElement(stk.pop());
+            int temp1 = stk.pop();
 
-            if(temp!=-1) {
-                vertexList[temp].visited = true;
-                System.out.print(vertexList[temp].label + " ");
-                stk.push(temp);
-                if(temp == v) {
+            while((temp2 = nextElement(temp1))!=-1) {
+                vertexList[temp2].visited = true;
+                //System.out.print(vertexList[temp].label + " ");
+                stk.push(temp2);
+                if(temp2 == v) {
                     System.out.println("\nYes path exist from " + vertexList[u].label + " to " + vertexList[v].label);
                     return true;
                 }
@@ -126,10 +127,10 @@ public class IsPathExist {
         g.addEdge(2, 3);
         g.addEdge(3, 3);
 
-        g.DFS_fun();
-        System.out.println();
+        //g.DFS_fun();
+        //System.out.println();
 
-        System.out.println(g.isPathFound(3, 0));
+        System.out.println(g.isPathFound(1, 3));
     }
 
 

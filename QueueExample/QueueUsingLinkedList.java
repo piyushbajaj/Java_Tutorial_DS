@@ -62,7 +62,7 @@ public class QueueUsingLinkedList {
         String result = "";
         Node current = front;
         while(current!=null){
-            result += Integer.toString(current.data) + "\n";
+            result += Integer.toString(current.data) + " ";
             current = current.next;
         }
         return result;
@@ -74,7 +74,7 @@ public class QueueUsingLinkedList {
         QLL.enqueue(4);
         QLL.enqueue(5);
         System.out.println(QLL.displayQueue());
-        System.out.println("Data which is now removed from the queue: " + QLL.deque());
+        //System.out.println("Data which is now removed from the queue: " + QLL.deque());
 
         System.out.println(QLL.displayQueue());
     }

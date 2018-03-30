@@ -96,6 +96,32 @@ public class SwappingNodesBST {
     public static Node firstNode = null;
     public static Node secondNode = null;
 
+    static Node temp1 = null;
+    static Node temp2 = null;
+    public void restoreOrigNodes(Node key){
+        if(key == null)
+            return;
+
+        restoreOrigNodes(key.left);
+        restoreOrigNodes(key.right);
+
+        if(key.left!=null && key.left.data > key.data)
+            temp1 = key.left;
+
+
+        if(key.right!=null && key.right.data < key.data)
+            temp2 = key.right;
+
+
+
+        if(temp1!=null && temp2!=null){
+            int temp = temp1.data;
+            temp1.data = temp2.data;
+            temp2.data = temp;
+        }
+
+    }
+
     public static void main(String[] args) {
         SwappingNodesBST BT = new SwappingNodesBST(6);
         BT.insert_BST(BT.root, -13);
@@ -118,15 +144,24 @@ public class SwappingNodesBST {
 
         System.out.println(BT.inOrderTraversal(BT.root));
 
-        BT.detectingTwoSwapNodes(BT.root);
-
-        BT.swap(firstNode, secondNode);
-
-        res.clear();
+//        BT.detectingTwoSwapNodes(BT.root);
+//
+//        BT.swap(firstNode, secondNode);
+//
+//        res.clear();
 
         System.out.println("After putting back the swapped nodes: ");
 
-        System.out.println(BT.inOrderTraversal(BT.root));
+        //System.out.println(BT.inOrderTraversal(BT.root));
 
+        res.clear();
+
+        BT.restoreOrigNodes(BT.root);
+
+        System.out.println(temp1.data + " " + temp2.data);
+
+
+
+        System.out.println(BT.inOrderTraversal(BT.root));
     }
 }

@@ -40,6 +40,17 @@ public class BFS {
         /* Compute the "height" of a tree -- the number of
         nodes along the longest path from the root node
         down to the farthest leaf node.*/
+
+        /*
+        Algorithm for calculating Height:
+        1. if root == null, then 0
+        2. left = height(root.left)
+        3. right = height(root.right)
+        4. if(left > right)
+            return left + 1;
+        5. else return right + 1;
+         */
+
         int height(Node root)
         {
             if (root == null)
@@ -62,8 +73,10 @@ public class BFS {
         {
             if (root == null)
                 return;
-            if (level == 1)
+            if (level == 1) {
                 System.out.print(root.data + " ");
+                return;
+            }
             else if (level > 1)
             {
                 printGivenLevel(root.left, level-1);
