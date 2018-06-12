@@ -6,7 +6,7 @@ package DynamicProgramming;
 public class MatrixChain {
 
     public int matrixChainMultiplication(int[] mat){
-        int n = mat.length;
+        int n = mat.length-1;
         int[][] tab = new int[n][n];
         String[][] loc = new String[n][n];
 
@@ -14,11 +14,11 @@ public class MatrixChain {
             tab[i][i] = 0;
 
         for(int l = 2; l < n; l++) {
-            for (int i = 1; i < n - l + 1; i++) {
+            for (int i = 0; i < n - l; i++) {
                 int j = i+l-1;
                 tab[i][j] = Integer.MAX_VALUE;
                 for (int k = i; k <= j -1; k++) {
-                   int q = tab[i][k] + tab[k+1][j] + mat[i-1]* mat[k] * mat[j];
+                   int q = tab[i][k] + tab[k+1][j] + mat[i]* mat[k+1] * mat[j+1];
                     if(q < tab[i][j])
                         tab[i][j] = q;
                 }
@@ -26,7 +26,15 @@ public class MatrixChain {
         }
 
 
-        return tab[1][n-1];
+        return tab[0][n];
+
+    }
+
+    public void sum(int i , int j){
+
+    }
+
+    public void sum(int[] i){
 
     }
 

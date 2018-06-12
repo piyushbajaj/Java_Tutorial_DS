@@ -78,8 +78,8 @@ public class Bitwise_Class {
         BC.BitwiseORComplement(2, 4);
         BC.BitwiseXORComplement(2, 4);
         BC.BitwiseLeftShift(8);
-        BC.BitwiseRightShift(0);
-        BC.BitwiseUnsignedRightShift(-8);
+        BC.BitwiseRightShift(8);
+        BC.BitwiseUnsignedRightShift(8);
 
 
     }

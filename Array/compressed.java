@@ -72,7 +72,7 @@ public class compressed {
         Scanner s = new Scanner(System.in);
 
         String str = s.nextLine();
-        compressedChar(str);
-        //compressBetter(str);
+        //compressedChar(str);
+        compressBetter(str);
     }
 }

@@ -106,12 +106,13 @@ public class MaxHeap {
 
 
     public static void main(String[] args) {
-        MaxHeap BT = new MaxHeap(5);
+        MaxHeap BT = new MaxHeap(6);
         BT.insert(3);
         BT.insert(10);
         BT.insert(2);
         BT.insert(0);
         BT.insert(-10);
+        BT.insert(20);
         BT.printMaxHeap();
 
         //BT.arr = new int[]{1, 2, 3, 4, 5};

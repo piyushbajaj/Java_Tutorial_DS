@@ -10,6 +10,7 @@ public class add1ToNumber {
         int count = 0;
         String str = " ";
 
+        //Integer.Mi
         int i = 0;
         for(i = len-1; i >= 0; i--){
             if(bin.charAt(i) == '0'){

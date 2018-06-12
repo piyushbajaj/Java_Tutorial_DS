@@ -148,7 +148,7 @@ public class MergeSort {
 //            Nd = Nd.next;
 //        }
 
-        int a[] = {5, 4, 1, 2, 10, 3, 2};
+        int a[] = {8, 2, 4, 1, 3, 5, 6, 9};
 
         //int a[] = {5, 4, 1};
         int l =0;

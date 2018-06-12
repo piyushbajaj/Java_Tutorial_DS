@@ -181,6 +181,19 @@ public class LinkedList_Prob {
         return head;
     }
 
+    public void print_reverse(Node key){
+        if(key == null) {
+            //System.out.print("NULL");
+            return;
+        }
+
+
+        if(key!=null)
+            print_reverse(key.next);
+
+        System.out.print(key.data + " -> ");
+    }
+
     public static void main(String[] args) {
         LinkedList_Prob ll = new LinkedList_Prob();
         ll.createLinkList(1);
@@ -217,6 +230,9 @@ public class LinkedList_Prob {
         ll.createLinkList(9);
 
         ll.printList(ll.head);
+        System.out.println("Printing Linked List in reverse order: ");
+        ll.print_reverse(ll.head);
+        System.out.println();
 //        ll.head.next.next.next.next.next.next.next.next = ll.head.next.next;
 //
 //        System.out.println(ll.isLoop_pointer(ll.head));

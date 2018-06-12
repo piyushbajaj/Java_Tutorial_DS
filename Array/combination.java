@@ -21,8 +21,18 @@ public class combination {
 
     public static void main(String[] args) {
         combination com = new combination();
-        com.combinationString("piy");
+        //com.combinationString("piy");
+
+        com.combination_prac("", "piy");
         //String str = "piyush";
         //String a = str.substring(1);
+    }
+
+    public void combination_prac(String prefix, String str){
+        if(str.length() > 0){
+            System.out.print(prefix + str.charAt(0) + ", ");
+            combination_prac(prefix + str.charAt(0), str.substring(1));
+            combination_prac(prefix, str.substring(1));
+        }
     }
 }

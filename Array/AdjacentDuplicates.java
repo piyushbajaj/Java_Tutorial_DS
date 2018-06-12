@@ -23,7 +23,7 @@ public class AdjacentDuplicates {
     }
 
     public static void main(String[] args) {
-        int[] A = {1, 5, 6, 8, 8, 8, 0, 1, 1, 0, 6, 5};
+        int[] A = {10, 12, 5, 6, 8, 8, 8, 0, 1, 1, 0, 6, 5};
         int index = removeAdjDuplicates(A);
         for(int i = 0; i <= index; i++){
             System.out.println(" " + A[i]);

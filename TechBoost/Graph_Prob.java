@@ -3,6 +3,7 @@ package TechBoost;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Created by piyush.bajaj on 25/03/18.
@@ -48,6 +49,10 @@ public class Graph_Prob {
             if(vertexList[i].visited == false)
                 BFS_util(i, vertexList[i].visited);
         }
+
+        for(int i = 0; i < V; i++){
+            vertexList[i].visited = false;
+        }
     }
 
     public void BFS_util(int ver, boolean visited){
@@ -70,6 +75,45 @@ public class Graph_Prob {
                 }
             }
         }
+    }
+
+    public void DFS(){
+        for(int i = 0; i < V; i++){
+            if(vertexList[i].visited == false){
+                DFS_Util(i, vertexList[i].visited);
+            }
+        }
+
+        for(int i = 0; i < V; i++){
+            vertexList[i].visited = false;
+        }
+    }
+
+    public void DFS_Util(int ver, boolean visited){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(ver);
+        vertexList[ver].visited = true;
+        System.out.print(vertexList[ver].label + " ");
+
+        while (!stack.isEmpty()){
+            int temp = stack.pop();
+
+            temp = nextElement(temp);
+
+            if(temp != -1){
+                System.out.print(vertexList[temp].label + " ");
+                vertexList[temp].visited = true;
+                stack.push(temp);
+            }
+        }
+    }
+
+    public int nextElement(int v){
+        for(int i = 0; i < V; i++){
+            if(adjList[v].contains(i) && vertexList[i].visited == false)
+                return i;
+        }
+        return -1;
     }
 
 
@@ -96,5 +140,7 @@ public class Graph_Prob {
 
         gp.BFS();
 
+        System.out.println();
+        gp.DFS();
     }
 }

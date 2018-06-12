@@ -91,17 +91,18 @@ public class QuickSort {
 
     public static void main(String[] args) {
         QuickSort QS = new QuickSort();
-        int[] arr = {10, 80, 30, 90, 40, 50, 70};
+        //int[] arr = {10, 80, 30, 90, 40, 50, 70};
+        int[] arr = {4, 5, 3, 2, 1, 7, 6};
         int low = 0;
         int high = arr.length-1;
         System.out.println("Original Array: ");
         QS.printArray(arr);
         System.out.println("After applying Quick Sort in an Array: ");
-        //QS.quickSort(arr, low, high);
-        //QS.printArray(arr);
-
-        QS.quickSort_prac(arr, low, high);
+        QS.quickSort(arr, low, high);
         QS.printArray(arr);
+
+       // QS.quickSort_prac(arr, low, high);
+        //QS.printArray(arr);
     }
 
     //practice

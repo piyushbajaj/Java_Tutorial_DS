@@ -3,7 +3,7 @@ package DynamicProgramming;
 /**
  * Created by piyush.bajaj on 30/04/17.
  */
-public class knapsack_problem {
+public class    knapsack_problem {
 
     public void knapsack(int[] weight, int[] benefit, int maxWt){
         int n = weight.length;
@@ -40,8 +40,8 @@ public class knapsack_problem {
         //int[] benefit = {1, 4, 5, 7};
         int[] benefit = {24, 20};
         int max_weight = 50;
-        //System.out.println(kp.knapsack_prac(weight, benefit, max_weight));
-        System.out.println(kp.knapSack_g4g(max_weight, weight, benefit, weight.length ));
+        System.out.println(kp.knapsack_prac(weight, benefit, max_weight));
+        //System.out.println(kp.knapSack_g4g(max_weight, weight, benefit, weight.length ));
     }
 
     public int knapSack_g4g(int W, int wt[], int val[], int n)
@@ -100,7 +100,7 @@ public class knapsack_problem {
         for(int i = row_len -1; i >= 0; i--) {
                 if (i==0 && j==0)
                     break;
-                else if(mat[i][j] == mat[i-1][j])
+                else if( i!=0 && (mat[i][j] == mat[i-1][j]))
                     continue;
                 else {
                     System.out.println("Index: " + i + ", Weight: " + wt[i] + " , Benefit: " + val[i]);

@@ -1,5 +1,7 @@
 package TechBoost;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -17,6 +19,26 @@ public class BinaryTree_Prob {
             left = null;
             right = null;
         }
+    }
+
+    public void levelOrder_iterative(BTNode key){
+        if(key == null)
+            return;
+
+        Queue<BTNode> queue = new LinkedList<BTNode>();
+        queue.add(key);
+
+        while (!queue.isEmpty()){
+            BTNode temp = queue.remove();
+            System.out.print(temp.data + " ");
+            if(temp.left!=null){
+                queue.add(temp.left);
+            }
+            if(temp.right!=null){
+                queue.add(temp.right);
+            }
+        }
+
     }
 
     public void preOrder_recursive(BTNode Nd){
@@ -225,6 +247,11 @@ public class BinaryTree_Prob {
         BT.root.right = new BTNode(4);
         BT.root.left.left = new BTNode(5);
         BT.root.left.right = new BTNode(6);
+
+        System.out.print("LevelOrder Traversal using Iterative Approach: ");
+        BT.levelOrder_iterative(BT.root);
+        System.out.println();
+
 
         System.out.print("PreOrder Traversal using Recursive Approach: ");
         BT.preOrder_recursive(BT.root);
